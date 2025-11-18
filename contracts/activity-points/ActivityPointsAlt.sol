@@ -33,7 +33,6 @@ contract ActivityPointsAlt is OwnableWithManagers {
 
   constructor(
     address _statsAddress,
-    address _mintedPostsStatsAddress,
     address _tldAddress,
     uint256 _multiplier
   ) {
