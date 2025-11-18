@@ -1,11 +1,18 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 pragma solidity ^0.8.17;
 
-contract MockPunkTld {
-  mapping(string => address) public domainHolders;
+import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-  constructor(address domainHolder_, string memory domainName_) {
-    domainHolders[domainName_] = domainHolder_;
+contract MockPunkTld is ERC721 {
+  mapping(string => address) public domainHolders;
+  uint256 public idCounter = 1; // Start at 1, so idCounter - 1 gives total domains
+
+  constructor(address domainHolder_, string memory domainName_) ERC721("Mock Punk TLD", "MPTLD") {
+    if (domainHolder_ != address(0) && bytes(domainName_).length > 0) {
+      domainHolders[domainName_] = domainHolder_;
+      _mint(domainHolder_, idCounter);
+      idCounter++;
+    }
   }
 
   function defaultNames(address) external pure returns(string memory) {
@@ -25,7 +32,7 @@ contract MockPunkTld {
     return domainHolders[_domainName];
   }
 
-  function name() external pure returns(string memory) {
+  function name() public pure override returns(string memory) {
     return ".tld";
   }
 
@@ -37,5 +44,15 @@ contract MockPunkTld {
     require(keccak256(abi.encodePacked(_domainName)) != keccak256(abi.encodePacked("existing1")), "MockPunkTld: domain name already exists");
 
     domainHolders[_domainName] = _domainHolder;
+    _mint(_domainHolder, idCounter);
+    idCounter++;
+  }
+
+  // Mock function to mint domains to a user (for testing ActivityPointsAlt)
+  function mint(address _to, uint256 _amount) external {
+    for (uint256 i = 0; i < _amount; i++) {
+      _mint(_to, idCounter);
+      idCounter++;
+    }
   }
 }
