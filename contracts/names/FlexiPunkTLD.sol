@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-pragma solidity 0.8.4;
+pragma solidity 0.8.17;
 
 import "./interfaces/IFlexiPunkMetadata.sol";
 import "./interfaces/IBasePunkTLD.sol";
@@ -211,7 +211,8 @@ contract FlexiPunkTLD is IBasePunkTLD, ERC721, Ownable, ReentrancyGuard {
   }
 
   ///@dev Hook that is called before any token transfer. This includes minting and burning.
-  function _beforeTokenTransfer(address from,address to,uint256 tokenId) internal override virtual {
+  function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize) internal override {
+    super._beforeTokenTransfer(from, to, tokenId, batchSize);
 
     if (from != address(0)) { // run on every transfer but not on mint
       domains[domainIdsNames[tokenId]].holder = to; // change holder address in Domain struct

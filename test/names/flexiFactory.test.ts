@@ -108,7 +108,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: tldPrice // pay 1 ETH for the TLD
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "BuyingDisabled");
   });
 
   it("should fail to create a new valid TLD if payment is too low", async function () {
@@ -128,7 +128,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: ethers.parseEther("0.9") // pay 0.9 ETH for the TLD - TOO LOW!
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "ValueBelowPrice");
   });
 
   it("should fail to create a new valid TLD if more than 1 dot in the name", async function () {
@@ -148,7 +148,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: tldPrice // pay 1 ETH for the TLD
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "InvalidDotCount");
   });
 
   it("should fail to create a new valid TLD if no dot in the name", async function () {
@@ -168,7 +168,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: tldPrice // pay 1 ETH for the TLD
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "InvalidDotCount");
   });
 
   it("should fail to create a new valid TLD if name does not start with dot", async function () {
@@ -188,7 +188,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: tldPrice // pay 1 ETH for the TLD
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "MustStartWithDot");
   });
 
   it("should fail to create a new valid TLD if name is of length 1", async function () {
@@ -208,7 +208,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: tldPrice // pay 1 ETH for the TLD
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "TldTooShort");
   });
 
   it("should fail to create a new valid TLD with empty name", async function () {
@@ -228,7 +228,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: tldPrice // pay 1 ETH for the TLD
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "TldTooShort");
   });
 
   it("should fail to create a new valid TLD if TLD already exists", async function () {
@@ -263,7 +263,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: tldPrice // pay 1 ETH for the TLD
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "TldForbidden");
   });
 
   it("should fail to create a new valid TLD if TLD name is too long", async function () {
@@ -284,7 +284,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: tldPrice // pay 1 ETH for the TLD
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "TldTooLong");
   });
 
   it("should fail to create a new valid TLD if TLD name is forbidden", async function () {
@@ -305,7 +305,7 @@ describe("FlexiPunkTLDFactory", function () {
           value: tldPrice // pay 1 ETH for the TLD
         }
       )
-    ).to.be.reverted;
+    ).to.be.revertedWithCustomError(contract, "TldForbidden");
   });
 });
 
