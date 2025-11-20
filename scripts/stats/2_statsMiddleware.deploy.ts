@@ -5,7 +5,7 @@ import { network } from "hardhat";
 
 const contractName = "StatsMiddleware";
 
-const statsAddress = "";
+const statsAddress = "0x9a02980D8F20b6FCE35109dC18DA8F560BeB8a05";
 
 async function main() {
   // Connect to the network and get the network name

@@ -46,7 +46,7 @@ export default defineConfig({
       blockExplorers: {
         etherscan: {
           name: "Etherscan",
-          url: "https://testnet.monadscan.com/",
+          url: "https://testnet.monadscan.com",
           apiUrl: "https://api.etherscan.io/v2/api",
         },
         blockscout: {
@@ -63,7 +63,7 @@ export default defineConfig({
     },
     etherscan: { // https://testnet.monadscan.com/
       apiKey: configVariable("ETHERSCAN_API_KEY"),
-      enabled: false,
+      enabled: true,
     },
     sourcify: { // blockvision sourcify: https://testnet.monvision.io/
       enabled: true,

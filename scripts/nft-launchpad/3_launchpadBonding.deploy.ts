@@ -5,12 +5,12 @@ import { network } from "hardhat";
 
 const contractName = "IggyLaunchpad721Bonding";
 
-const metadataAddress = "";
-const mintingFeeReceiver = ""; // can be revenue distributor contract address
-const directoryAddress = "";
-const statsMiddlewareAddress = "";
+const metadataAddress = "0xA835E3a4A79F2349aDdEbd6e2B99acd80343e84C";
+const mintingFeeReceiver = "0xE08033d0bDBcEbE7e619c3aE165E7957Ab577961"; // can be revenue distributor contract address
+const directoryAddress = "0xe5970402b86870CC80246e168E6192F0BB993C43";
+const statsMiddlewareAddress = "0xA37a65518ef4ff8b9584Fbb0C322f2532800D0A0";
 const mintingFeePercentage = 0.02; // 2%
-const price = 1; // price for creating a new NFT collection (in ether)
+const price = 0.001; // price for creating a new NFT collection (in MON)
 
 async function main() {
   // Connect to the network and get the network name
@@ -20,10 +20,6 @@ async function main() {
   
   // Destructure ethers from the connection
   const { ethers } = connection;
-  
-  // Parse values that require ethers
-  const mintingFeePercentage = ethers.parseEther("0.02");
-  const price = ethers.parseEther("1"); // price for creating a new NFT collection
   
   // Get the deployer account
   const [deployer] = await ethers.getSigners();

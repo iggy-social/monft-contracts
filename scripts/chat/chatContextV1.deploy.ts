@@ -4,7 +4,7 @@ import { network } from "hardhat";
 
 const contractName = "ChatContextV1";
 
-const modTokenAddress = "0x84A6DBa749bb6261315aB76B30c70d03025A5F32";
+const modTokenAddress = "0x5237F81d638FA41a9E644C6Cc62Fea5c80E5C02f";
 const chatOwnerAddress = "0x6771F33Cfd8C6FC0A1766331f715f5d2E1d4E0e2";
 const modMinBalance = 1; // 1 NFT
 
