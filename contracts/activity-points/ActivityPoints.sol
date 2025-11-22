@@ -9,15 +9,12 @@ interface IStats {
 }
 
 /** 
-@title Collect all wei spending stats from different contracts and return them as one
+@title Collect all wei spending stats and apply multiplier to them
 @author Tempe Techie
 */
 contract ActivityPoints is OwnableWithManagers {
   address public statsAddress; // stats for NFT launchpad, Friend Keys, Swap etc.
-  address public tldStatsAddress;
-
   uint256 public bonusWeiTotal; // total bonus wei (without multiplier)
-
   uint256 public multiplier; // multiplier for points (e.g. 1 means 1 wei spent = 1 point)
 
   mapping (address => uint256) public bonusWei; // bonus wei (without multiplier)
@@ -28,11 +25,9 @@ contract ActivityPoints is OwnableWithManagers {
 
   constructor(
     address _statsAddress,
-    address _tldStatsAddress,
     uint256 _multiplier
   ) {
     statsAddress = _statsAddress;
-    tldStatsAddress = _tldStatsAddress;
     multiplier = _multiplier;
   }
 
@@ -53,10 +48,6 @@ contract ActivityPoints is OwnableWithManagers {
       totalWeiSpent += IStats(statsAddress).getWeiSpent(_user);
     }
 
-    if (tldStatsAddress != address(0)) {
-      totalWeiSpent += IStats(tldStatsAddress).getWeiSpent(_user);
-    }
-
     return totalWeiSpent;
   }
 
@@ -65,10 +56,6 @@ contract ActivityPoints is OwnableWithManagers {
 
     if (statsAddress != address(0)) {
       totalWeiSpent += IStats(statsAddress).weiSpentTotal();
-    }
-
-    if (tldStatsAddress != address(0)) {
-      totalWeiSpent += IStats(tldStatsAddress).weiSpentTotal();
     }
 
     return totalWeiSpent;
@@ -110,10 +97,6 @@ contract ActivityPoints is OwnableWithManagers {
 
   function setStatsAddress(address _statsAddress) external onlyManagerOrOwner {
     statsAddress = _statsAddress;
-  }
-
-  function setTldStatsAddress(address _tldStatsAddress) external onlyManagerOrOwner {
-    tldStatsAddress = _tldStatsAddress;
   }
   
 }

@@ -45,7 +45,6 @@ describe("Activity Points Alt", function () {
     const ActivityPointsAlt = await ethers.getContractFactory("ActivityPointsAlt");
     activityPointsContract = await ActivityPointsAlt.deploy(
       await statsContract.getAddress(),
-      ethers.ZeroAddress, // _mintedPostsStatsAddress (unused)
       await tldContract.getAddress(),
       multiplier
     );

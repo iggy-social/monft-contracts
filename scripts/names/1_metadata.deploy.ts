@@ -1,11 +1,8 @@
-// npx hardhat run scripts/activity-points/activityPoints.deploy.ts --network monadTestnet
+// npx hardhat run scripts/names/1_metadata.deploy.ts --network monadTestnet
 
 import { network } from "hardhat";
 
-const contractName = "ActivityPoints";
-
-const statsAddress = ""; // stats contract
-const multiplier = 1_000_000; // points for 1 ETH
+const contractName = "FlexiPunkMetadata";
 
 async function main() {
   // Connect to the network and get the network name
@@ -27,10 +24,7 @@ async function main() {
   // Deploy the contract
   console.log("Deploying the contract...");
   const contract = await ethers.getContractFactory(contractName);
-  const instance = await contract.deploy(
-    statsAddress,
-    multiplier
-  );
+  const instance = await contract.deploy();
   
   // Wait for deployment to complete
   await instance.waitForDeployment();
@@ -50,15 +44,13 @@ async function main() {
   console.log("Contract deployed to:", address);
   console.log("Network:", networkName);
   console.log("Deployer:", deployer.address);
-  console.log("Stats Address:", statsAddress);
-  console.log("Multiplier:", multiplier);
   console.log("========================\n");
   
   // Contract verification instructions
   console.log("\n=== Contract Verification ===");
   if (networkName !== "hardhat") {
     console.log("\nTo verify the contract, run:");
-    console.log(`npx hardhat verify --network ${networkName} ${address} ${statsAddress} "${multiplier}"`);
+    console.log(`npx hardhat verify --network ${networkName} ${address}`);
   } else {
     console.log("Skipping verification for local network");
   }

@@ -40,7 +40,6 @@ describe("Activity Points", function () {
     const ActivityPoints = await ethers.getContractFactory("ActivityPoints");
     activityPointsContract = await ActivityPoints.deploy(
       await statsContract.getAddress(),
-      ethers.ZeroAddress,
       multiplier
     );
     await activityPointsContract.waitForDeployment();

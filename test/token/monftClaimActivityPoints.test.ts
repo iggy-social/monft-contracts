@@ -81,7 +81,6 @@ describe("MONFTClaimActivityPoints", function () {
     const ActivityPoints = await ethers.getContractFactory("ActivityPoints");
     activityPointsContract = await ActivityPoints.deploy(
       await statsContract.getAddress(), // Stats address
-      ethers.ZeroAddress, // no TLD stats address
       1n // multiplier = 1
     );
     await activityPointsContract.waitForDeployment();
