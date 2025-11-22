@@ -4,7 +4,7 @@ import { network } from "hardhat";
 
 const contractName = "ActivityPoints";
 
-const statsAddress = ""; // stats contract
+const statsAddress = "0x9a02980D8F20b6FCE35109dC18DA8F560BeB8a05"; // stats contract
 const multiplier = 1_000_000; // points for 1 ETH
 
 async function main() {

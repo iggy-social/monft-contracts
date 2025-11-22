@@ -4,9 +4,17 @@ import { network } from "hardhat";
 
 const contractName = "MONFTNameMinter";
 
-const revenueAddress = ""; // Revenue address
-const statsAddress = ""; // Stats middleware address
-const tldAddress = ""; // TLD contract address
+const revenueAddress = "0xE08033d0bDBcEbE7e619c3aE165E7957Ab577961"; // Revenue address
+const statsAddress = "0xA37a65518ef4ff8b9584Fbb0C322f2532800D0A0"; // Stats middleware address
+const tldAddress = "0xDe7390cD47869458ACa6cfB9Ef98962F0500F94C"; // TLD contract address
+const minterManagers = [ // Minter managers addresses
+  "0xb29050965A5AC70ab487aa47546cdCBc97dAE45D",
+  "0x6771F33Cfd8C6FC0A1766331f715f5d2E1d4E0e2",
+  "0x5FfD23B1B0350debB17A2cB668929aC5f76d0E18",
+  "0xE64AE6B6c7BDAFefad768D9354bBED2C55C9B0F2",
+  "0x19931aF80ad59Cc22841983EA3057B8776558A7f"
+];
+const newTldOwnerAddress = "0x6771F33Cfd8C6FC0A1766331f715f5d2E1d4E0e2"; // New TLD owner address
 
 // Prices in MON
 const price1char = "1"; // 1 char domain price
@@ -87,6 +95,21 @@ async function main() {
   const txAddWriter = await instanceStats.addWriter(minterAddress);
   await txAddWriter.wait();
   console.log("Done! Minter address added to StatsMiddleware as writer");
+
+  // set minter managers
+  console.log("\nSetting minter managers...");
+  for (const manager of minterManagers) {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    const txAddManager = await instance.addManager(manager);
+    await txAddManager.wait();
+    console.log("Done! Manager added:", manager);
+  }
+
+  // transfer ownership of minter contract to new TLD owner
+  console.log("\nTransferring ownership of minter contract to new TLD owner...");
+  const txTransferOwnership = await instance.transferOwnership(newTldOwnerAddress);
+  await txTransferOwnership.wait();
+  console.log("Done! Ownership transferred to new TLD owner");
   
   console.log("\n========================\n");
   

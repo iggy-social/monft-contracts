@@ -4,9 +4,9 @@ import { network } from "hardhat";
 
 const contractNameFactory = "FlexiPunkTLDFactory";
 
-const metaAddress = ""; // FlexiPunkMetadata contract address
-const forbAddress = ""; // PunkForbiddenTlds contract address
-const resolverAddress = ""; // PunkResolverNonUpgradable contract address
+const metaAddress = "0xfCDBB81a365e7BaE67bBb36a3bCc3CF6168d9DA2"; // FlexiPunkMetadata contract address
+const forbAddress = "0xecC82A3c0a1f898Db4B98A0D2c643EeF74520Db9"; // PunkForbiddenTlds contract address
+const resolverAddress = "0x7D5561394Abb16aa400FB2E2543499f5fd9a23cF"; // PunkResolverNonUpgradable contract address
 const tldPrice = "694200"; // default price in MON
 
 async function main() {

@@ -2,11 +2,10 @@
 
 import { network } from "hardhat";
 
-const factoryAddress = ""; // FlexiPunkTLDFactory contract address
-const resolverAddress = ""; // PunkResolverNonUpgradable contract address
-const forbiddenTldsAddress = ""; // PunkForbiddenTlds contract address
-const tldOwnerAddress = ""; // TLD owner address
-const newFactoryOwnerAddress = ""; // New factory owner address (will receive ownership of factory, resolver, and forbiddenTlds)
+const factoryAddress = "0x3B3a68Df146C2F915867c3263F1DcE7BA0d01c72"; // FlexiPunkTLDFactory contract address
+const resolverAddress = "0x7D5561394Abb16aa400FB2E2543499f5fd9a23cF"; // PunkResolverNonUpgradable contract address
+const forbiddenTldsAddress = "0xecC82A3c0a1f898Db4B98A0D2c643EeF74520Db9"; // PunkForbiddenTlds contract address
+const newFactoryOwnerAddress = "0x6771F33Cfd8C6FC0A1766331f715f5d2E1d4E0e2"; // New factory owner address (will receive ownership of factory, resolver, and forbiddenTlds)
 
 const tldName = ".monft";
 const tldSymbol = ".MONFT";
@@ -29,7 +28,7 @@ async function main() {
   console.log("Account balance:", ethers.formatEther(balance), "MON");
   
   // Validate addresses
-  if (!factoryAddress || !resolverAddress || !forbiddenTldsAddress || !tldOwnerAddress || !newFactoryOwnerAddress) {
+  if (!factoryAddress || !resolverAddress || !forbiddenTldsAddress || !newFactoryOwnerAddress) {
     throw new Error("Please set all required addresses in the script");
   }
   
@@ -46,12 +45,11 @@ async function main() {
   // Launch the .monft TLD
   console.log(`\nLaunching ${tldName} TLD...`);
   console.log(`TLD Symbol: ${tldSymbol}`);
-  console.log(`TLD Owner: ${tldOwnerAddress}`);
   
   const txCreateTld = await instanceFactory.ownerCreateTld(
     tldName,
     tldSymbol,
-    tldOwnerAddress,
+    deployer.address,
     0, // Price is set to 0, because minter contract will set the prices
     false // Buying is not enabled, because buying will be done via minter contract
   );
