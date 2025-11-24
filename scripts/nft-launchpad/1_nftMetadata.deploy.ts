@@ -1,4 +1,4 @@
-// npx hardhat run scripts/nft-launchpad/1_nftMetadata.deploy.ts --network monadTestnet
+// npx hardhat run scripts/nft-launchpad/1_nftMetadata.deploy.ts --network monadMainnet
 
 import { network } from "hardhat";
 

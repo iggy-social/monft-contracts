@@ -1,4 +1,4 @@
-// npx hardhat run scripts/names/3_resolver.deploy.ts --network monadTestnet
+// npx hardhat run scripts/names/3_resolver.deploy.ts --network monadMainnet
 
 import { network } from "hardhat";
 

@@ -1,14 +1,14 @@
-// npx hardhat run scripts/managers/addManagers.ts --network monadTestnet
+// npx hardhat run scripts/managers/addManagers.ts --network monadMainnet
 
 import { network } from "hardhat";
 
 const contractAddresses: string[] = [
   // Add your contract addresses here
-  "0xe5970402b86870CC80246e168E6192F0BB993C43", // directory
-  "0xe9C63616387bbd4902a10671619534eef04e63f1", // launchpad
-  "0xd1b328B5Ff4bF06ef9c6E7CDacDa69be5F522649", // minter
-  "0x64a2489c6ECd8535BCC8E57DbB88ceB10b345766", // chat
-  "0x8f594531ae52618265d2BddF25A2d1B656151972", // comments
+  "0x64a2489c6ECd8535BCC8E57DbB88ceB10b345766", // directory
+  "0x8f594531ae52618265d2BddF25A2d1B656151972", // launchpad
+  "0x7D5561394Abb16aa400FB2E2543499f5fd9a23cF", // minter
+  "0x4Bc9611b5f324173e7Ae7AC5Eb6487BC98950103", // chat
+  "0xD2aD91025b4Fe67670580751d27DC4Fc3a8F81CB", // comments
 ];
 
 const managerAddresses: string[] = [

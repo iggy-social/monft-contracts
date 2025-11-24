@@ -1,11 +1,11 @@
 // 2. Deploy StatsMiddleware contract
-// npx hardhat run scripts/stats/2_statsMiddleware.deploy.ts --network monadTestnet
+// npx hardhat run scripts/stats/2_statsMiddleware.deploy.ts --network monadMainnet
 
 import { network } from "hardhat";
 
 const contractName = "StatsMiddleware";
 
-const statsAddress = "0x9a02980D8F20b6FCE35109dC18DA8F560BeB8a05";
+const statsAddress = "0x49DBC917b9Cb4547d8cb000EC10dc8085595d581";
 
 async function main() {
   // Connect to the network and get the network name

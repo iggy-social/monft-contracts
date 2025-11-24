@@ -1,12 +1,12 @@
-// npx hardhat run scripts/names/6_minter.deploy.ts --network monadTestnet
+// npx hardhat run scripts/names/6_minter.deploy.ts --network monadMainnet
 
 import { network } from "hardhat";
 
 const contractName = "MONFTNameMinter";
 
 const revenueAddress = "0xE08033d0bDBcEbE7e619c3aE165E7957Ab577961"; // Revenue address
-const statsAddress = "0xA37a65518ef4ff8b9584Fbb0C322f2532800D0A0"; // Stats middleware address
-const tldAddress = "0xDe7390cD47869458ACa6cfB9Ef98962F0500F94C"; // TLD contract address
+const statsAddress = "0x1Db529706557c35D34e31d789f64F999b7D8AA4F"; // Stats middleware address
+const tldAddress = "0x6aaFe10424C5CF9734cAF9d251aE339c45d251E2"; // TLD contract address
 const minterManagers = [ // Minter managers addresses
   "0xb29050965A5AC70ab487aa47546cdCBc97dAE45D",
   "0x6771F33Cfd8C6FC0A1766331f715f5d2E1d4E0e2",
@@ -17,11 +17,11 @@ const minterManagers = [ // Minter managers addresses
 const newTldOwnerAddress = "0x6771F33Cfd8C6FC0A1766331f715f5d2E1d4E0e2"; // New TLD owner address
 
 // Prices in MON
-const price1char = "1"; // 1 char domain price
-const price2char = "0.1"; // 2 chars domain price
-const price3char = "0.05"; // 3 chars domain price
-const price4char = "0.002"; // 4 chars domain price
-const price5char = "0.0009"; // 5+ chars domain price
+const price1char = "69420"; // 1 char domain price
+const price2char = "6969"; // 2 chars domain price
+const price3char = "1337"; // 3 chars domain price
+const price4char = "420"; // 4 chars domain price
+const price5char = "69"; // 5+ chars domain price
 
 async function main() {
   // Connect to the network and get the network name

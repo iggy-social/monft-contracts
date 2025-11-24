@@ -1,12 +1,12 @@
-// npx hardhat run scripts/names/4_factory.deploy.ts --network monadTestnet
+// npx hardhat run scripts/names/4_factory.deploy.ts --network monadMainnet
 
 import { network } from "hardhat";
 
 const contractNameFactory = "FlexiPunkTLDFactory";
 
-const metaAddress = "0xfCDBB81a365e7BaE67bBb36a3bCc3CF6168d9DA2"; // FlexiPunkMetadata contract address
-const forbAddress = "0xecC82A3c0a1f898Db4B98A0D2c643EeF74520Db9"; // PunkForbiddenTlds contract address
-const resolverAddress = "0x7D5561394Abb16aa400FB2E2543499f5fd9a23cF"; // PunkResolverNonUpgradable contract address
+const metaAddress = "0xA37a65518ef4ff8b9584Fbb0C322f2532800D0A0"; // FlexiPunkMetadata contract address
+const forbAddress = "0x7BF660E8C36070F81828d17b500E33A86601FF70"; // PunkForbiddenTlds contract address
+const resolverAddress = "0xe9C63616387bbd4902a10671619534eef04e63f1"; // PunkResolverNonUpgradable contract address
 const tldPrice = "694200"; // default price in MON
 
 async function main() {

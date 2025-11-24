@@ -1,5 +1,5 @@
 // 1. Deploy the Stats contract
-// npx hardhat run scripts/stats/1_stats.deploy.ts --network monadTestnet
+// npx hardhat run scripts/stats/1_stats.deploy.ts --network monadMainnet
 
 import { network } from "hardhat";
 

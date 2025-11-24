@@ -1,15 +1,15 @@
 // If verifying contract via step 4 does not work, use this script instead
 
 // 5. Deploy mock/test Nft721Bonding contract so that others created through factory can get auto-verified.
-// npx hardhat run scripts/nft-launchpad/5_mockNftContract.ts --network monadTestnet
+// npx hardhat run scripts/nft-launchpad/5_mockNftContract.ts --network monadMainnet
 
 import { network } from "hardhat";
 
 const contractName = "Nft721Bonding";
 
-const factoryAddress = "";
-const metadataAddress = "";
-const mintingFeeReceiver = "";
+const factoryAddress = "0x8f594531ae52618265d2BddF25A2d1B656151972";
+const metadataAddress = "0xa89DC49a31D0067dAfdd1d6047C3b11b3042d0d6";
+const mintingFeeReceiver = "0xE08033d0bDBcEbE7e619c3aE165E7957Ab577961";
 const cName = "Test collection";
 const cSymbol = "TEST";
 const mintingFeePercentage = 0.02; // 2%

@@ -1,16 +1,16 @@
 // 3. Deploy IggyLaunchpad721Bonding contract
-// npx hardhat run scripts/nft-launchpad/3_launchpadBonding.deploy.ts --network monadTestnet
+// npx hardhat run scripts/nft-launchpad/3_launchpadBonding.deploy.ts --network monadMainnet
 
 import { network } from "hardhat";
 
 const contractName = "IggyLaunchpad721Bonding";
 
-const metadataAddress = "0xA835E3a4A79F2349aDdEbd6e2B99acd80343e84C";
+const metadataAddress = "0xa89DC49a31D0067dAfdd1d6047C3b11b3042d0d6";
 const mintingFeeReceiver = "0xE08033d0bDBcEbE7e619c3aE165E7957Ab577961"; // can be revenue distributor contract address
-const directoryAddress = "0xe5970402b86870CC80246e168E6192F0BB993C43";
-const statsMiddlewareAddress = "0xA37a65518ef4ff8b9584Fbb0C322f2532800D0A0";
+const directoryAddress = "0x64a2489c6ECd8535BCC8E57DbB88ceB10b345766";
+const statsMiddlewareAddress = "0x1Db529706557c35D34e31d789f64F999b7D8AA4F";
 const mintingFeePercentage = 0.02; // 2%
-const price = 0.001; // price for creating a new NFT collection (in MON)
+const price = 169; // price for creating a new NFT collection (in MON)
 
 async function main() {
   // Connect to the network and get the network name

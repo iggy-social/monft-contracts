@@ -1,11 +1,11 @@
-// npx hardhat run scripts/activity-points/activityPoints.deploy.ts --network monadTestnet
+// npx hardhat run scripts/activity-points/activityPoints.deploy.ts --network monadMainnet
 
 import { network } from "hardhat";
 
 const contractName = "ActivityPoints";
 
-const statsAddress = "0x9a02980D8F20b6FCE35109dC18DA8F560BeB8a05"; // stats contract
-const multiplier = 1_000_000; // points for 1 ETH
+const statsAddress = "0x49DBC917b9Cb4547d8cb000EC10dc8085595d581"; // stats contract
+const multiplier = 10; // points for 1 MON
 
 async function main() {
   // Connect to the network and get the network name

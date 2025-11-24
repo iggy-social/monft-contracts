@@ -1,10 +1,10 @@
-// npx hardhat run scripts/names/5_launchTld.ts --network monadTestnet
+// npx hardhat run scripts/names/5_launchTld.ts --network monadMainnet
 
 import { network } from "hardhat";
 
-const factoryAddress = "0x3B3a68Df146C2F915867c3263F1DcE7BA0d01c72"; // FlexiPunkTLDFactory contract address
-const resolverAddress = "0x7D5561394Abb16aa400FB2E2543499f5fd9a23cF"; // PunkResolverNonUpgradable contract address
-const forbiddenTldsAddress = "0xecC82A3c0a1f898Db4B98A0D2c643EeF74520Db9"; // PunkForbiddenTlds contract address
+const factoryAddress = "0xbe98cE1fE53CAc243C092F7d98D1A1262E090A8c"; // FlexiPunkTLDFactory contract address
+const resolverAddress = "0xe9C63616387bbd4902a10671619534eef04e63f1"; // PunkResolverNonUpgradable contract address
+const forbiddenTldsAddress = "0x7BF660E8C36070F81828d17b500E33A86601FF70"; // PunkForbiddenTlds contract address
 const newFactoryOwnerAddress = "0x6771F33Cfd8C6FC0A1766331f715f5d2E1d4E0e2"; // New factory owner address (will receive ownership of factory, resolver, and forbiddenTlds)
 
 const tldName = ".monft";

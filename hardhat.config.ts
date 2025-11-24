@@ -30,6 +30,12 @@ export default defineConfig({
       type: "edr-simulated",
       chainType: "l1",
     },
+    monadMainnet: {
+      type: "http",
+      chainType: "l1",
+      url: "https://rpc.monad.xyz",
+      accounts: [configVariable("DEPLOYER_PRIVATE_KEY")],
+    },
     monadTestnet: {
       type: "http",
       chainType: "l1",
@@ -40,6 +46,21 @@ export default defineConfig({
 
   // Custom block explorer configs go here (by chainId)
   chainDescriptors: {
+    143: {
+      name: "monadMainnet",
+      chainType: "l1",
+      blockExplorers: {
+        etherscan: {
+          name: "Etherscan",
+          url: "https://monadscan.com",
+          apiUrl: "https://api.etherscan.io/v2/api",
+        },
+        blockscout: {
+          url: "https://monad.socialscan.io",
+          apiUrl: "https://api.socialscan.io/monad/v1/explorer/command_api/contract"
+        },
+      },
+    },
     10143: {
       name: "monadTestnet",
       chainType: "l1",

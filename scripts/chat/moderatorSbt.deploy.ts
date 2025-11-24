@@ -1,4 +1,4 @@
-// npx hardhat run scripts/chat/moderatorSbt.deploy.ts --network monadTestnet
+// npx hardhat run scripts/chat/moderatorSbt.deploy.ts --network monadMainnet
 
 import { network } from "hardhat";
 
@@ -11,7 +11,8 @@ const moderators = [
   "0x6771F33Cfd8C6FC0A1766331f715f5d2E1d4E0e2",
   "0x5FfD23B1B0350debB17A2cB668929aC5f76d0E18",
   "0xE64AE6B6c7BDAFefad768D9354bBED2C55C9B0F2",
-  "0x19931aF80ad59Cc22841983EA3057B8776558A7f"
+  "0x19931aF80ad59Cc22841983EA3057B8776558A7f",
+  "0xD22c9708D7638575801Eb042be1d2BFEab94BC23"
 ]
 
 async function main() {
